@@ -1,0 +1,61 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo">
+    <ActionBar>
+        <NavigationButton visibility="collapsed" />
+        <GridLayout columns="auto, *" width="100%">
+            <Image src="~/images/logo.png" class="logo" verticalAlignment="center" col="0" />
+            <Label text="VIP Installatie" class="title" verticalAlignment="center" col="1" />
+        </GridLayout>
+    </ActionBar>
+
+    <GridLayout>
+        <!-- Activatie Scherm -->
+        <StackLayout visibility="{{ isActivated ? 'collapsed' : 'visible' }}" class="activation-screen">
+            <Label text="App Activatie" class="activation-title" />
+            <Label text="Scan de QR code uit je e-mail om de app te activeren" textWrap="true" class="activation-text" />
+            <Button text="Scan QR Code" tap="{{ scanQRCode }}" class="bg-[#DAA520] text-white" />
+        </StackLayout>
+
+        <!-- Hoofd App Content -->
+        <TabView visibility="{{ isActivated ? 'visible' : 'collapsed' }}" androidTabsPosition="bottom">
+            <TabViewItem title="Bellen" ios:iconSource="res://phone" android:iconSource="res://phone">
+                <StackLayout class="tab-content">
+                    <TextField id="phoneNumber" text="{{ phoneNumber }}" hint="Voer telefoonnummer in" keyboardType="phone" class="input" />
+                    <Button text="Bellen" tap="{{ makeCall }}" class="bg-[#DAA520] text-white" />
+                    <Button text="VoIP Bellen" tap="{{ makeVoIPCall }}" class="bg-[#8B4513] text-white" />
+                </StackLayout>
+            </TabViewItem>
+
+            <TabViewItem title="Snelle SMS" ios:iconSource="res://message" android:iconSource="res://message">
+                <ScrollView>
+                    <StackLayout class="tab-content">
+                        <Label text="Snelle berichten" class="settings-label" />
+                        <Repeater items="{{ quickMessages }}">
+                            <Repeater.itemTemplate>
+                                <Button text="{{ message }}" tap="{{ $parents['StackLayout'].sendQuickMessage }}" class="bg-[#F5DEB3]" />
+                            </Repeater.itemTemplate>
+                        </Repeater>
+                    </StackLayout>
+                </ScrollView>
+            </TabViewItem>
+
+            <TabViewItem title="Custom SMS" ios:iconSource="res://edit" android:iconSource="res://edit">
+                <StackLayout class="tab-content">
+                    <TextField text="{{ customNumber }}" hint="Voer telefoonnummer in" keyboardType="phone" class="input" />
+                    <TextView text="{{ customMessage }}" hint="Typ je bericht" height="150" class="input" />
+                    <Button text="Verstuur SMS" tap="{{ sendCustomMessage }}" class="bg-[#DAA520] text-white" />
+                </StackLayout>
+            </TabViewItem>
+
+            <TabViewItem title="Info" ios:iconSource="res://info" android:iconSource="res://info">
+                <ScrollView>
+                    <StackLayout class="tab-content">
+                        <Image src="~/images/logo.png" class="logo-large" />
+                        <Label text="VIP Installatie" class="title-large" />
+                        <Label text="{{ 'Versie: ' + appVersion }}" class="info-text" />
+                        <Label text="{{ 'Licentie: ' + licenseInfo }}" class="info-text" />
+                    </StackLayout>
+                </ScrollView>
+            </TabViewItem>
+        </TabView>
+    </GridLayout>
+</Page>

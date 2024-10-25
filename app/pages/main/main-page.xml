@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo" class="page">
+    <ActionBar title="VIP Installatie">
+        <NavigationButton visibility="collapsed" />
+        <ActionItem ios.position="right" 
+                   android.position="actionBar"
+                   tap="{{ onEmergency }}"
+                   visibility="{{ emergencyEnabled ? 'visible' : 'collapsed' }}">
+            <ActionItem.actionView>
+                <Button text="NOOD" 
+                       class="emergency-button" 
+                       tap="{{ onEmergency }}" />
+            </ActionItem.actionView>
+        </ActionItem>
+    </ActionBar>
+    
+    <GridLayout rows="auto, *">
+        <!-- Dashboard berichten -->
+        <StackLayout row="0" class="dashboard-messages p-2" visibility="{{ hasDashboardMessages ? 'visible' : 'collapsed' }}">
+            <Label text="{{ currentDashboardMessage }}" textWrap="true" class="dashboard-message" />
+        </StackLayout>
+
+        <!-- Hoofdinhoud -->
+        <StackLayout row="1" class="main-content">
+            <!-- Knoppen Grid -->
+            <GridLayout rows="auto, auto, auto" columns="*, *" class="p-2">
+                <!-- Fiber Support -->
+                <Button text="Fiber Support" 
+                        tap="{{ onFiberSupport }}"
+                        class="action-button" 
+                        row="0" col="0" 
+                        margin="5" />
+                
+                <!-- Internet Storing -->
+                <Button text="Internet Storing" 
+                        tap="{{ onInternetStoring }}"
+                        class="action-button" 
+                        row="0" col="1" 
+                        margin="5" />
+                
+                <!-- TV Storing -->
+                <Button text="TV Storing" 
+                        tap="{{ onTVStoring }}"
+                        class="action-button" 
+                        row="1" col="0" 
+                        margin="5" />
+                
+                <!-- Algemene Support -->
+                <Button text="Algemene Support" 
+                        tap="{{ onGeneralSupport }}"
+                        class="action-button" 
+                        row="1" col="1" 
+                        margin="5" />
+            </GridLayout>
+
+            <!-- Laatste activiteit -->
+            <StackLayout class="activity-section p-2">
+                <Label text="Laatste Activiteit" class="h2" />
+                <ListView items="{{ recentActivity }}" class="activity-list">
+                    <ListView.itemTemplate>
+                        <GridLayout columns="auto, *" class="activity-item p-2">
+                            <Label col="0" text="{{ icon }}" class="activity-icon" />
+                            <Label col="1" text="{{ message }}" textWrap="true" class="activity-message" />
+                        </GridLayout>
+                    </ListView.itemTemplate>
+                </ListView>
+            </StackLayout>
+        </StackLayout>
+    </GridLayout>
+</Page>

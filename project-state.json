@@ -1,0 +1,64 @@
+{
+  "projectName": "VIP Installatie App",
+  "version": "1.0.0",
+  "lastUpdate": "2024-03-24",
+  "components": {
+    "mobileApp": {
+      "features": [
+        "Groep-specifieke functies (VIP1, VIP2, VIP3)",
+        "Noodknop met locatie",
+        "Dashboard voor berichten",
+        "Automatische permissies",
+        "Activatie via QR/code"
+      ],
+      "status": "In ontwikkeling"
+    },
+    "adminPanel": {
+      "features": [
+        "QR-code generatie",
+        "Klantenbeheer",
+        "VoIP instellingen",
+        "SMS templates",
+        "Gebruikslimieten"
+      ],
+      "status": "Basis functionaliteit gereed"
+    },
+    "superAdmin": {
+      "features": [
+        "Distributie management",
+        "Email configuratie",
+        "Branding aanpassingen",
+        "Activatie beheer",
+        "Beveiligingsinstellingen"
+      ],
+      "status": "In ontwikkeling"
+    }
+  },
+  "distributions": [
+    {
+      "name": "VIP Installatie",
+      "domain": "vip-installatie.nl",
+      "status": "Actief"
+    },
+    {
+      "name": "Telecom Support",
+      "domain": "telecom-support.nl",
+      "status": "Actief"
+    }
+  ],
+  "pendingFeatures": [
+    "Database integratie",
+    "VoIP server configuratie",
+    "Email/SMS services koppeling",
+    "Productie deployment"
+  ],
+  "completedFeatures": [
+    "Basis architectuur",
+    "Mobiele app interface",
+    "Admin panel basis",
+    "Super admin setup",
+    "Distributie management",
+    "Permissies systeem",
+    "Netwerk monitoring"
+  ]
+}

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super Admin Dashboard</title>
+    <link href="super-admin.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Modals -->
+    <div id="newDistributionModal" class="modal">
+        <div class="modal-content">
+            <h2>Nieuwe Distributie</h2>
+            <form id="newDistributionForm">
+                <div class="form-group">
+                    <label>Naam:</label>
+                    <input type="text" id="distName" required class="input-styled">
+                </div>
+                <div class="form-group">
+                    <label>Domein:</label>
+                    <input type="text" id="distDomain" required class="input-styled">
+                </div>
+                <div class="form-group">
+                    <label>Primaire Kleur:</label>
+                    <input type="color" id="distColor" value="#B8860B" class="input-styled">
+                </div>
+                <div class="form-group">
+                    <label>Logo:</label>
+                    <input type="file" id="distLogo" accept="image/*" class="input-styled">
+                </div>
+                <div class="modal-actions">
+                    <button type="button" onclick="closeModal('newDistributionModal')" class="btn-secondary">Annuleren</button>
+                    <button type="submit" class="btn-primary">Aanmaken</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="editDistributionModal" class="modal">
+        <div class="modal-content">
+            <h2>Distributie Bewerken</h2>
+            <form id="editDistributionForm">
+                <div class="form-group">
+                    <label>Naam:</label>
+                    <input type="text" id="editDistName" required class="input-styled">
+                </div>
+                <div class="form-group">
+                    <label>Domein:</label>
+                    <input type="text" id="editDistDomain" required class="input-styled">
+                </div>
+                <div class="form-group">
+                    <label>Primaire Kleur:</label>
+                    <input type="color" id="editDistColor" class="input-styled">
+                </div>
+                <div class="form-group">
+                    <label>Logo:</label>
+                    <input type="file" id="editDistLogo" accept="image/*" class="input-styled">
+                </div>
+                <div class="modal-actions">
+                    <button type="button" onclick="closeModal('editDistributionModal')" class="btn-secondary">Annuleren</button>
+                    <button type="submit" class="btn-primary">Opslaan</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Tooltip container -->
+    <div id="tooltip" class="tooltip"></div>
+
+    <!-- Main content -->
+    <div class="admin-layout">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="../logo.png" alt="Logo" class="sidebar-logo">
+                <h2>Super Admin</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-item active" data-tab="distributions">Distributies</a>
+                <a href="#" class="nav-item" data-tab="email">Email Instellingen</a>
+                <a href="#" class="nav-item" data-tab="activation">Activatie Beheer</a>
+                <a href="#" class="nav-item" data-tab="branding">Branding</a>
+                <a href="#" class="nav-item" data-tab="analytics">Statistieken</a>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="content-header">
+                <button class="btn-primary" onclick="showNewDistributionModal()">
+                    <i class="icon-plus"></i> Nieuwe Distributie
+                </button>
+            </header>
+
+            <div class="tab-content active" id="distributions-tab">
+                <div class="card-grid" id="distributionsGrid">
+                    <!-- Distributie kaarten worden hier dynamisch toegevoegd -->
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="super-admin.js"></script>
+    <script src="distributions.js"></script>
+    <script src="tooltips.js"></script>
+</body>
+</html>

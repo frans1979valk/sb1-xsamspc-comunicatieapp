@@ -1,0 +1,66 @@
+/* Bestaande stijlen behouden */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Nieuwe stijlen toevoegen */
+.action-button {
+    background-color: #B8860B;
+    color: white;
+    font-size: 16;
+    font-weight: bold;
+    padding: 12;
+    border-radius: 8;
+}
+
+.action-button:pressed {
+    background-color: #8B6508;
+}
+
+.emergency-button {
+    background-color: #FF0000;
+    color: white;
+    font-weight: bold;
+    padding: 8 16;
+    border-radius: 20;
+    margin-right: 8;
+}
+
+.emergency-button:pressed {
+    background-color: #CC0000;
+}
+
+.dashboard-messages {
+    background-color: #FFF3CD;
+    padding: 10;
+    margin: 5;
+    border-radius: 5;
+}
+
+.dashboard-message {
+    color: #856404;
+    font-size: 14;
+}
+
+.activity-section {
+    margin-top: 20;
+}
+
+.activity-list {
+    height: 200;
+}
+
+.activity-item {
+    border-bottom-width: 1;
+    border-bottom-color: #EEEEEE;
+}
+
+.activity-icon {
+    font-size: 20;
+    margin-right: 10;
+}
+
+.activity-message {
+    color: #666666;
+    font-size: 14;
+}
